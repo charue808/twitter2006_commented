@@ -1,0 +1,57 @@
+<template name="Home">
+<head>
+  <title>Twitter Example</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="navbar">
+      <div id="userLogin">
+        {{#if currentUser}}
+          {{> atNavButton}}
+        {{/if}}
+      </div>
+      <img src="./images/Twitter_logo.png">
+    </div>
+    
+    <div class="row">
+      <div class="col-md-8">
+        <h3>A global community of friends and strangers answering one simple question: What are you doing?</h3>
+        
+        {{> submitTweetLayout}}
+        {{> recentUpdates}}
+      </div>
+      {{#unless currentUser}}
+        <div class="col-md-4 bg-success">
+          {{> atForm}}
+        </div>
+      {{/unless}}
+    </div>
+  </div>
+</body>
+</template>
+
+<template name="recentUpdates">
+  <h5>Recent Public Updates</h5>
+    <div class="tweet-list">
+      <br/>
+      {{#if Template.subscriptionsReady}}
+        {{#each mostRecentTweets}}
+          <p>{{tweetText}}</p>
+        {{/each}}
+      {{else}}
+        <p>Loading...</p>
+      {{/if}}
+      <br/>
+      <br/>
+    </div>
+</template>
+
+<template name="submitTweetLayout">
+  <label for="tweetInputBox">What are you doing?</label>
+    <textarea class="form-control" id="tweetInputBox" rows="4" maxlength="140"></textarea>
+    <p>Only first 140 characters will display</p>
+    <div class="text-right">
+      <button class="btn btn-primary">Submit</button>
+    </div>
+</template>

@@ -1,0 +1,23 @@
+
+textarea {
+	resize: none; 
+}
+
+.navbar {
+	background-color: white;
+	border: white;
+}
+
+
+
+
+.container {
+	width: 860px;
+
+}
+
+
+.description{
+	font-size: 16px;
+
+}
